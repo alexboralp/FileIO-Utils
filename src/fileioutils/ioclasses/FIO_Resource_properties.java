@@ -3,33 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
+import fileioutils.ioclasses.interfaces.FIOI;
 
 /**
  *
  * @author alexander
  */
-public class FDBResourceProperties implements FIDB<Properties, Properties> {
+public class FIO_Resource_properties implements FIOI<Properties, Properties> {
 
-    private static FDBResourceProperties resourceImage;
+    private static FIO_Resource_properties fioResourceProperties;
     
-    private FDBResourceProperties() {
+    private FIO_Resource_properties() {
         
     }
     
-    public static FDBResourceProperties getInstance() {
-        if (resourceImage == null) {
-            resourceImage = new FDBResourceProperties();
+    public static FIO_Resource_properties getInstance() {
+        if (fioResourceProperties == null) {
+            fioResourceProperties = new FIO_Resource_properties();
         }
         
-        return resourceImage;
+        return fioResourceProperties;
     }
     
     @Override
@@ -41,13 +41,13 @@ public class FDBResourceProperties implements FIDB<Properties, Properties> {
             properties.load(in);
             return properties;
         } catch (IOException ex) {
-            Logger.getLogger(FDBResourceProperties.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FIO_Resource_properties.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
     @Override
     public void write(String path, Properties info) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("You can not write to a Resource file."); //To change body of generated methods, choose Tools | Templates.
     }
 }

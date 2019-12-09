@@ -3,30 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import fileioutils.ioclasses.interfaces.FIOI;
 
 /**
  *
  * @author alexander
  */
-public class FDBProperties implements FIDB<Properties, Properties> {
+public class FIO_Path_properties implements FIOI<Properties, Properties> {
 
-    private static FDBProperties dbProperties;
+    private static FIO_Path_properties fioPathProperties;
     
-    private FDBProperties() { }
+    private FIO_Path_properties() { }
     
-    public static FDBProperties getInstance() {
-        if (dbProperties == null) {
-            dbProperties = new FDBProperties();
+    public static FIO_Path_properties getInstance() {
+        if (fioPathProperties == null) {
+            fioPathProperties = new FIO_Path_properties();
         }
         
-        return dbProperties;
+        return fioPathProperties;
     }
 
     @Override

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses.interfaces;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import java.io.IOException;
  * @author aborbon
  * @param <T>
  */
-public interface FIFile <T> {
+public interface FIOFileI <T> {
     public void openFile(String path) throws IOException;
     public void appendToFile(T message) throws IOException;
     public void closeFile() throws IOException;

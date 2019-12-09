@@ -3,33 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import fileioutils.ioclasses.interfaces.FIOI;
 
 /**
  *
  * @author alexander
  */
-public class FDBTxt implements FIDB<String, String> {
+public class FIO_Path_txt implements FIOI<String, String> {
 
-    private static FDBTxt dbTxt;
+    private static FIO_Path_txt fioPathTxt;
     
-    private FDBTxt() { }
+    private FIO_Path_txt() { }
     
-    public static FDBTxt getInstance() {
-        if (dbTxt == null) {
-            dbTxt = new FDBTxt();
+    public static FIO_Path_txt getInstance() {
+        if (fioPathTxt == null) {
+            fioPathTxt = new FIO_Path_txt();
         }
         
-        return dbTxt;
+        return fioPathTxt;
     }
 
     @Override
     public String read(String path) throws IOException {
-        return new String ( (byte[])FDBBinary.getInstance().read(path) );
+        return new String ( (byte[])FIO_Binary.getInstance().read(path) );
     }
 
     @Override

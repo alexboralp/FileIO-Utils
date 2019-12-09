@@ -3,38 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import fileioutils.ioclasses.interfaces.FIOI;
 
 /**
  *
  * @author alexander
  */
-public class FDBJson implements FIDB<String, Object> {
+public class FIO_Path_json implements FIOI<String, Object> {
     
-    private static FDBJson dbJson;
+    private static FIO_Path_json fioPathJson;
     Gson jsonConverter;
     
-    private FDBJson() {
+    private FIO_Path_json() {
         jsonConverter = new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create();
     }
     
-    public static FDBJson getInstance() {
-        if (dbJson == null) {
-            dbJson = new FDBJson();
+    public static FIO_Path_json getInstance() {
+        if (fioPathJson == null) {
+            fioPathJson = new FIO_Path_json();
         }
         
-        return dbJson;
+        return fioPathJson;
     }
 
     @Override
     public String read(String path) throws IOException {
-        return new String ( (byte[])FDBBinary.getInstance().read(path) );
+        return new String ( (byte[])FIO_Binary.getInstance().read(path) );
     }
     
     public Object readObject(String path, Class cl) throws IOException {

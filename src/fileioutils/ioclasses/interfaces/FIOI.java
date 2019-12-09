@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses.interfaces;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
  * @param <T>
  * @param <Q>
  */
-public interface FIDB<T, Q> {
+public interface FIOI<T, Q> {
     public T read(String path) throws IOException;
     public void write(String path, Q info) throws IOException;
 }

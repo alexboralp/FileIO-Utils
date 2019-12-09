@@ -3,32 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses;
 
+import fileioutils.FIOUtils;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import fileioutils.ioclasses.interfaces.FIOFileI;
 
 /**
  *
  * @author aborbon
  */
-public class FBufferedWriterFile implements FIFile<String> {
+public class FIO_BufferedWriterFile implements FIOFileI<String> {
     BufferedWriter bufferWriter;
 
-    public FBufferedWriterFile() {}
+    public FIO_BufferedWriterFile() {}
 
     @Override
     public void openFile(String path) throws IOException {
-        this.bufferWriter = FUtils.openFile(path);
+        this.bufferWriter = FIOUtils.openFile(path);
     }
 
     @Override
     public void appendToFile(String message) throws IOException {
-        FUtils.appendToFile(bufferWriter, message);
+        FIOUtils.appendToFile(bufferWriter, message);
     }
 
     @Override
     public void closeFile() throws IOException {
-        FUtils.closeFile(bufferWriter);
+        FIOUtils.closeFile(bufferWriter);
     }
 }

@@ -3,32 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileioutils;
+package fileioutils.ioclasses;
 
 import java.io.IOException;
+import fileioutils.ioclasses.interfaces.FIOI;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author alexander
  */
-public class FDBImageIcon implements FIDB<ImageIcon, ImageIcon> {
-
-    private static FDBImageIcon dbImageIcon;
+public class FIO_Path_gif implements FIOI<ImageIcon, ImageIcon> {
     
-    private FDBImageIcon() { }
+    private static FIO_Path_gif fioPathGif;
     
-    public static FDBImageIcon getInstance() {
-        if (dbImageIcon == null) {
-            dbImageIcon = new FDBImageIcon();
+    private FIO_Path_gif() {
+    }
+    
+    public static FIO_Path_gif getInstance() {
+        if (fioPathGif == null) {
+            fioPathGif = new FIO_Path_gif();
         }
         
-        return dbImageIcon;
+        return fioPathGif;
     }
 
     @Override
     public ImageIcon read(String path) throws IOException {
-        return new ImageIcon(path);
+        return FIO_ImageIcon.getInstance().read(path);
     }
 
     @Override

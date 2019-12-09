@@ -16,14 +16,14 @@ import javax.swing.ImageIcon;
  *
  * @author aborbon
  */
-public class FUtils {
+public class FIOUtils {
     
     public static String[] getFolderContent(String path) {
         return new File(path).list();
     }
     
     public static ImageIcon ImageIconLoadAndScale(String path, double scale) throws IOException {
-        ImageIcon imageIcon = (ImageIcon)FDBFact.getIntance().create(FDBFact.DB_TYPE.DBImageIcon).read(path);
+        ImageIcon imageIcon = (ImageIcon)FIOFact.create(path).read(path);
         int nw = (int)(imageIcon.getIconWidth() * scale);
         int nh = (int)(imageIcon.getIconHeight() * scale);
         return new ImageIcon(imageIcon.getImage().getScaledInstance(nw, nh, Image.SCALE_DEFAULT));
