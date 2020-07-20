@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import fileioutils.ioclasses.interfaces.FIOI;
+import java.lang.reflect.Method;
 //import utils.Logger;
 
 /**
@@ -23,8 +24,8 @@ public class FIOFact {
         Resource
     }
     
-    public static FIOI create(String path) {
-        return FIOFact.create(FIO_TYPE.Path, path);
+    public static FIOI create(String ext) {
+        return FIOFact.create(FIO_TYPE.Path, ext);
     }
     
     public static FIOI create(FIO_TYPE type, String ext) {
@@ -45,7 +46,10 @@ public class FIOFact {
     }
 
     public static FIOI create_class(String className) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        return (FIOI)Class.forName("fileioutils.ioclasses." + className).getDeclaredConstructor().newInstance();
+        
+        Class<?> cls = Class.forName("fileioutils.ioclasses." + className);
+        Method m = cls.getMethod("getInstance");
+        return (FIOI) m.invoke(null);
     }
     
 }

@@ -18,6 +18,10 @@ import javax.swing.ImageIcon;
  */
 public class FIOUtils {
     
+    public static String getCurrentFolder() {
+        return System.getProperty("user.dir");
+    }
+    
     public static String[] getFolderContent(String path) {
         return new File(path).list();
     }

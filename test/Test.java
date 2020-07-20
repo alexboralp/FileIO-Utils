@@ -1,5 +1,10 @@
 
 import fileioutils.FIOFact;
+import fileioutils.FIOUtils;
+import fileioutils.ioclasses.interfaces.FIOI;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,6 +18,13 @@ import fileioutils.FIOFact;
  */
 public class Test {
     public static void main(String[] args) {
-        FIOFact.create("Hola.txt");
+        FIOI fioi = FIOFact.create("txt");
+        try {
+            System.out.println(FIOUtils.getCurrentFolder() + "\\Hola.txt");
+            
+            fioi.write(FIOUtils.getCurrentFolder() + "\\Hola.txt", "Prueba");
+        } catch (IOException ex) {
+            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
