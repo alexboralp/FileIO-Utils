@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 
 /**
- *
+ * Clase para hacer pruebas del proyecto para el manejo de archivos.
  * @author alexander
  */
 public class Test {

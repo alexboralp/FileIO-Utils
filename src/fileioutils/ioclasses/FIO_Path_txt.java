@@ -11,7 +11,7 @@ import java.io.IOException;
 import fileioutils.ioclasses.interfaces.FIOI;
 
 /**
- *
+ * Clase que se encarga de la lectura y escritura de texto en archivo.
  * @author alexander
  */
 public class FIO_Path_txt implements FIOI<String, String> {
@@ -20,6 +20,10 @@ public class FIO_Path_txt implements FIOI<String, String> {
     
     private FIO_Path_txt() { }
     
+    /**
+     * Crea y devuelve una instacia de la clase.
+     * @return Una instancia de la clase.
+     */
     public static FIO_Path_txt getInstance() {
         if (fioPathTxt == null) {
             fioPathTxt = new FIO_Path_txt();

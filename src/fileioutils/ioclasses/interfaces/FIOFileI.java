@@ -8,9 +8,10 @@ package fileioutils.ioclasses.interfaces;
 import java.io.IOException;
 
 /**
- *
+ * Interface que debe tener una clase que realiza apertura, escritura y cierre
+ * de archivos.
  * @author aborbon
- * @param <T>
+ * @param <T> Tipo de dato que se quiere guardar en el archivo.
  */
 public interface FIOFileI <T> {
     public void openFile(String path) throws IOException;
